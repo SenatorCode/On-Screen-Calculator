@@ -44,7 +44,7 @@ body {
     height: 80px;
     border: 1.5px solid Indigo;
     border-radius: 16px;
-    padding: 20px 16px;
+    padding: 10px 16px;
     text-align: right;
     font-size: 40px;
     font-weight: 600;
@@ -55,3 +55,111 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+#controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+button {
+    width: 70px;
+    height: 60px;
+    cursor: pointer;
+    transition: o.2s ease;
+    border-radius: 12px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0px);
+}
+
+#dec, .num {
+    background-color: #1A1A2E;
+    Border: 2px solid Indigo;
+    font-size: 20px;
+    font-weight: 600;
+    color: #F5F5F5;
+}
+
+#dec:hover, .num:hover {
+    background: indigo;
+    box-shadow: 0px 8px 16px rgba(99, 102, 241, 0.3);
+}
+
+#dec:active .num:active {
+    background-color: indigo;
+    opacity: 80%;
+}
+
+#zero {
+    width: 150px;
+}
+
+.operator {
+    background-color: #FF006E;
+    border: 2px solid #FF006E;
+    font-size: 24px;
+    font-weight: 700;
+    color: #F5F5F5;
+}
+
+.operator:hover {
+    background-color: #FF006E;
+    opacity: 85%;
+    box-shadow: 0px 8px 20px rgba(255, 0, 110, 0.4);
+}
+
+.operator:active {
+    background-color: #FF006E;
+    opacity: 70%;
+}
+
+.func {
+    background-color: #00D9FF;
+    border: 2px solid #00D9FF;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1A1A2E;
+}
+
+.func:hover {
+    background-color: #00D9FF;
+    box-shadow: 0px 8px 16px rgba(0, 217, 255, 0.4);
+}
+
+.func:active {
+    background-color: #00D9FF;
+    opacity: 70%;
+}
+
+#equal {
+    background-color: #6366F1;
+    border: 2px solid #6366F1;
+    font-size: 28px;
+    font-weight: 700;
+    color: #F5F5F5;
+}
+
+#equal:hover {
+    background-color: #6366F1;
+    box-shadow: 0px 12px 24px rgba(99, 102, 241, 0.5);
+    opacity: 85%;
+}
+
+#equal:active {
+    opacity: 70%;
+    background-color: #6366F1;
+}
+
+/* #dec {
+    background-color: #1A1A2E;
+    color: #F5F5F5;
+    border: 2px solid indigo;
+    font-size: 28px;
+    font-weight: 600;
+} */

@@ -1,165 +1,168 @@
 * {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Inter, Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #050018;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 20px;
 }
 
 #container {
-    display: flex;
-    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     border-radius: 24px;
-    height: 520px;
-    width: 360px;
-    padding: 16px;
-    background-color: #0F0B2E;
-    border: 2px solid rgba(99, 102, 241, 0.3);
-    box-shadow:  0px 0px 30px rgba(99, 102, 241, 0.2);
-    gap: 20px;
+    padding: 24px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.display-section {
+    margin-bottom: 24px;
 }
 
 #display {
     font-size: 14px;
-    font-family: Inter, Segoe UI, sans-serif;
-    font-weight: 500;
-    opacity: 80%;
-    letter-spacing: 0.5px;
-    color: #00D9FF;
-    border: 1.5px solid #6366F1;
-    border-radius: 12px;
-    padding: 12px 16px;
-    background: rgba(99, 102, 241, 0.1);
+    color: #888;
     text-align: right;
+    min-height: 24px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 #output {
-    height: 80px;
-    border: 1.5px solid Indigo;
-    border-radius: 16px;
-    padding: 10px 16px;
+    font-size: 48px;
+    font-weight: 700;
+    color: #1a1a1a;
     text-align: right;
-    font-size: 40px;
-    font-weight: 600;
-    color: #F5F5F5;
-    font-family:  Inter, Segoe UI, monospace;
-    letter-spacing: 2px;
+    word-wrap: break-word;
+    word-break: break-all;
+    min-height: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
     line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 #controls {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
 }
 
 button {
-    width: 70px;
-    height: 60px;
-    cursor: pointer;
-    transition: o.2s ease;
+    padding: 16px;
+    border: none;
     border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    touch-action: manipulation;
 }
 
 button:hover {
     transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 button:active {
-    transform: translateY(0px);
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#dec, .num {
-    background-color: #1A1A2E;
-    Border: 2px solid Indigo;
-    font-size: 20px;
-    font-weight: 600;
-    color: #F5F5F5;
+button:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
 }
 
-#dec:hover, .num:hover {
-    background: indigo;
-    box-shadow: 0px 8px 16px rgba(99, 102, 241, 0.3);
+.num {
+    background: #f5f5f5;
+    color: #1a1a1a;
+    border: 2px solid #e0e0e0;
 }
 
-#dec:active .num:active {
-    background-color: indigo;
-    opacity: 80%;
-}
-
-#zero {
-    width: 150px;
+.num:hover {
+    background: #efefef;
 }
 
 .operator {
-    background-color: #FF006E;
-    border: 2px solid #FF006E;
-    font-size: 24px;
-    font-weight: 700;
-    color: #F5F5F5;
+    background: #667eea;
+    color: white;
+    border: 2px solid #667eea;
 }
 
 .operator:hover {
-    background-color: #FF006E;
-    opacity: 85%;
-    box-shadow: 0px 8px 20px rgba(255, 0, 110, 0.4);
-}
-
-.operator:active {
-    background-color: #FF006E;
-    opacity: 70%;
+    background: #5568d3;
+    border-color: #5568d3;
 }
 
 .func {
-    background-color: #00D9FF;
-    border: 2px solid #00D9FF;
-    font-size: 18px;
-    font-weight: 700;
-    color: #1A1A2E;
+    background: #ff6b6b;
+    color: white;
+    border: 2px solid #ff6b6b;
 }
 
 .func:hover {
-    background-color: #00D9FF;
-    box-shadow: 0px 8px 16px rgba(0, 217, 255, 0.4);
+    background: #ee5a52;
+    border-color: #ee5a52;
 }
 
-.func:active {
-    background-color: #00D9FF;
-    opacity: 70%;
+.func.equals {
+    background: #51cf66;
+    border-color: #51cf66;
 }
 
-#equal {
-    background-color: #6366F1;
-    border: 2px solid #6366F1;
-    font-size: 28px;
-    font-weight: 700;
-    color: #F5F5F5;
+.func.equals:hover {
+    background: #40c057;
+    border-color: #40c057;
 }
 
-#equal:hover {
-    background-color: #6366F1;
-    box-shadow: 0px 12px 24px rgba(99, 102, 241, 0.5);
-    opacity: 85%;
+#zero {
+    grid-column: span 2;
 }
 
-#equal:active {
-    opacity: 70%;
-    background-color: #6366F1;
+@media (max-width: 480px) {
+    #container {
+        padding: 16px;
+        max-width: 100%;
+    }
+
+    button {
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    #output {
+        font-size: 36px;
+        min-height: 50px;
+    }
+
+    #display {
+        font-size: 12px;
+    }
+
+    #controls {
+        gap: 10px;
+    }
 }
 
-/* #dec {
-    background-color: #1A1A2E;
-    color: #F5F5F5;
-    border: 2px solid indigo;
-    font-size: 28px;
-    font-weight: 600;
-} */
+@media (min-width: 769px) {
+    button {
+        padding: 18px;
+        font-size: 20px;
+    }
+
+    #output {
+        font-size: 56px;
+        min-height: 70px;
+    }
+}

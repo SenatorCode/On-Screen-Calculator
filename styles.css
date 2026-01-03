@@ -5,8 +5,8 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #e5e5e5;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,154 +15,144 @@ body {
 }
 
 #container {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 24px;
-    padding: 24px;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
     width: 100%;
-    max-width: 380px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 350px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 3px solid #2563eb;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 16px;
 }
 
 .display-section {
-    margin-bottom: 24px;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #display {
     font-size: 14px;
-    color: #888;
+    color: #9ca3af;
     text-align: right;
-    min-height: 24px;
+    min-height: 20px;
     margin-bottom: 8px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    word-wrap: break-word;
 }
 
 #output {
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #1f2937;
     text-align: right;
     word-wrap: break-word;
-    word-break: break-all;
-    min-height: 60px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
     line-height: 1.2;
 }
 
 #controls {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
 }
 
 button {
-    padding: 16px;
+    flex: 1;
+    padding: 20px;
     border: none;
     border-radius: 12px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
     touch-action: manipulation;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
 button:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-button:focus {
-    outline: 2px solid #667eea;
-    outline-offset: 2px;
-}
-
-.num {
-    background: #f5f5f5;
-    color: #1a1a1a;
-    border: 2px solid #e0e0e0;
-}
-
-.num:hover {
-    background: #efefef;
-}
-
-.operator {
-    background: #667eea;
-    color: white;
-    border: 2px solid #667eea;
-}
-
-.operator:hover {
-    background: #5568d3;
-    border-color: #5568d3;
+    transform: scale(0.95);
 }
 
 .func {
-    background: #ff6b6b;
+    background: #ef4444;
     color: white;
-    border: 2px solid #ff6b6b;
 }
 
 .func:hover {
-    background: #ee5a52;
-    border-color: #ee5a52;
+    background: #dc2626;
 }
 
-.func.equals {
-    background: #51cf66;
-    border-color: #51cf66;
+.operator {
+    background: #2563eb;
+    color: white;
 }
 
-.func.equals:hover {
-    background: #40c057;
-    border-color: #40c057;
+.operator:hover {
+    background: #1d4ed8;
+}
+
+.num {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+.num:hover {
+    background: #d1d5db;
+}
+
+#dec {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+#dec:hover {
+    background: #d1d5db;
+}
+
+#equal {
+    background: #22c55e;
+    color: white;
+}
+
+#equal:hover {
+    background: #16a34a;
+}
+
+.tall {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tall button {
+    flex: 1;
 }
 
 #zero {
-    grid-column: span 2;
+    flex: 2;
 }
 
-@media (max-width: 480px) {
-    #container {
+@media (max-width: 400px) {
+    button {
         padding: 16px;
-        max-width: 100%;
-    }
-
-    button {
-        padding: 14px;
-        font-size: 16px;
+        font-size: 18px;
     }
 
     #output {
-        font-size: 36px;
-        min-height: 50px;
-    }
-
-    #display {
-        font-size: 12px;
-    }
-
-    #controls {
-        gap: 10px;
-    }
-}
-
-@media (min-width: 769px) {
-    button {
-        padding: 18px;
-        font-size: 20px;
-    }
-
-    #output {
-        font-size: 56px;
-        min-height: 70px;
+        font-size: 32px;
     }
 }

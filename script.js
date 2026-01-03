@@ -30,7 +30,8 @@ function operate(a, b, op) {
 
     switch(op) {
         case "+": result = numA + numB; break;
-        case "-": result = numA - numB; break;
+        case "-": 
+        case "−": result = numA - numB; break;
         case "×": result = numA * numB; break;
         case "÷": 
             if (numB === 0) return null;
@@ -68,6 +69,9 @@ controls.addEventListener("click", (e) => {
             const result = operate(firstNum, secondNum, operator);
             if (result === null) {
                 display.textContent = "Cannot divide by 0";
+                firstNum = "";
+                secondNum = "";
+                operator = "";
                 return;
             }
             firstNum = result;
@@ -144,13 +148,21 @@ controls.addEventListener("click", (e) => {
         updateHistory();
     }
 
-    else if (target.id === "percent") {
+    else if (target.id === "negate") {
+        // Toggle negative/positive
         if (operator === "") {
-            firstNum = (Number(firstNum) / 100).toString();
-            displayHistory = firstNum;
+            if (firstNum !== "") {
+                firstNum = String(Number(firstNum) * -1);
+                displayHistory = firstNum;
+            }
         } else {
-            secondNum = (Number(firstNum) * Number(secondNum) / 100).toString();
-            displayHistory = firstNum + operator + secondNum;
+            if (secondNum !== "") {
+                secondNum = String(Number(secondNum) * -1);
+                displayHistory = firstNum + operator + secondNum;
+            } else {
+                secondNum = "-";
+                displayHistory += secondNum;
+            }
         }
         updateDisplay();
         updateHistory();
@@ -178,7 +190,14 @@ document.addEventListener("keydown", (e) => {
     }
     else if (e.key === "-") {
         e.preventDefault();
-        document.querySelector("#subtract").click();
+        // Check if we should negate instead of subtract
+        const firstNum = document.querySelector("#controls").dataset.firstNum;
+        const operator = document.querySelector("#controls").dataset.operator;
+        if (!firstNum || operator === "") {
+            document.querySelector("#negate").click();
+        } else {
+            document.querySelector("#subtract").click();
+        }
     }
     else if (e.key === "*") {
         e.preventDefault();
@@ -187,9 +206,5 @@ document.addEventListener("keydown", (e) => {
     else if (e.key === "/") {
         e.preventDefault();
         document.querySelector("#divide").click();
-    }
-    else if (e.key === "%") {
-        e.preventDefault();
-        document.querySelector("#percent").click();
     }
 });
